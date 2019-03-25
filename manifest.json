@@ -1,0 +1,42 @@
+{
+	"name" : "Bilibili-Helper",
+	"description" : "Bilibili-Helper",
+	"version" : "1.0",
+	"manifest_version" : 2,
+	
+	"permissions" : [
+		"declarativeContent", 
+		"activeTab",
+		"tabs", 
+		"https://comment.bilibili.com/*",
+		"http://127.0.0.1/*"
+	],
+	
+	"background" : {
+		"scripts" : ["static/js/jquery.min.js", "background.js"], 
+		"persistent" : false
+	},
+	
+	"page_action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16" : "static/images/16.png",
+			"32" : "static/images/32.png",
+			"48" : "static/images/48.png"
+		}
+	},
+	
+	"content_scripts": [
+		{
+		"matches": ["https://www.bilibili.com/video/av*"],
+		"js": ["static/js/jquery.min.js", "contentscript.js"],
+		"run_at": "document_end"
+		}
+	],
+	
+	"icons": {
+		"16" : "static/images/16.png",
+		"32" : "static/images/32.png",
+		"48" : "static/images/48.png"
+	}
+}
