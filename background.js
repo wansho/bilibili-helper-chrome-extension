@@ -1,3 +1,4 @@
+// 只有在 background.js 中，才能实现外域访问
 
 // 在安装了这个扩展的时候，加入一个监听器
 chrome.runtime.onInstalled.addListener(function() {
