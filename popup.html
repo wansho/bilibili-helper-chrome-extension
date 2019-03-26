@@ -1,21 +1,46 @@
-<!DOCTYPE html>
 <html>
 	<head>
+		<title> Bilibili-Helper </title>
+		<link rel="stylesheet" type="text/css" href="static/flat_ui/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/flat_ui/css/flat-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/loaders.css" />
 		<style>
-			button {
-				height: 30px;
-				width: 30px;
-				outline: none;
-				border:none;
-				background: none
+			body {
+				margin-top: 5px;
+				margin-bottom: 5px;
+				margin-right: 10px;
+				margin-left: 10px;
+				width: 130px;
+				height: 100px; /* 设置 popup 的长和宽 */
 			}
+
 		</style>
-		<title>
-			Bilibili-Helper
-		</title>
 	</head>
-	<body background = "static/images/detect.png">
-		<button id="start" ></button>
+	<body>
+		<div >
+			<h8> Bilibili-Helper </h8>
+		</div>
+		<div style="height: 1px; background-color: #bdc3c7">
+		</div>
+		<div style="margin-top: 5px">
+			<div >
+				<button id="activate" type="button" class="btn btn-primary"
+					style="background-color: #e45d58; width: 100px">
+					Activate
+				</button>
+			</div>
+			<div >
+				<div class="loader-inner line-scale" id="loader" style="visibility: hidden">
+				</div>
+			</div>
+		</div>
+
+
+		<script src="static/flat_ui/js/jquery.min.js"></script>
+		<script src="static/flat_ui/js/flat-ui.min.js"></script>
+		<script src="static/js/loaders.css.js"></script>
 		<script src="popup.js"></script>
+
+
 	</body>
 </html>

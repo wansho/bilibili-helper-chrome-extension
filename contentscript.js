@@ -43,7 +43,7 @@ function send_message(){
 flag = setInterval(checkout_dom, 1000); 
 
 
-// 接收 contentscript.js 和 popup.js发送过来的 html 文件进行分析
+// 接收 popup.js发送过来的消息
 chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 	// background.js 中的log时在扩展页面该扩展的背景页显示的

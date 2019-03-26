@@ -34,9 +34,12 @@ chrome.extension.onMessage.addListener(
 			dataType: "json", // 是请求后，返回的数据将以json格式显示
 			data: command,
 			success: function (data) {
-				status = data["status"]
-				timeline = data["danmu_timeline"]
-				
+				status = data["status"];
+				timeline = data["danmu_timeline"];
+				console.log(status);
+
+				// 发送消息给 popup.js，告诉它已收到结果，隐藏 loader
+				chrome.runtime.sendMessage({command: "over"});
 				return;
 			}
 		});
