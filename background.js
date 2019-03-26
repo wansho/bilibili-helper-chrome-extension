@@ -23,19 +23,16 @@ chrome.runtime.onInstalled.addListener(function() {
 // 接收 contentscript.js和 popup.js 发送过来的 html 文件进行分析
 chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {
-		// background.js 中的log时在扩展页面该扩展的背景页显示的
-        command = request.command; // command可能是detect命令，也可能直接是html页面
-		let url = command["url"];
-		let cookie = command["cookie"];
-
+		// background.js 中的 log 是在扩展页面该扩展的背景页显示的
+		command = request.command; // command可能是detect命令，也可能直接是html页面
+		if(command == "start"){
+			return;
+		}
 		$.ajax({
 			url: "http://127.0.0.1:8000/bilibili_helper/",
 			type: "GET",
 			dataType: "json", // 是请求后，返回的数据将以json格式显示
-			data: {
-				"url": url,
-				"cookie": cookie
-			},
+			data: command,
 			success: function (data) {
 				console.log(data["url"]);
 				return;

@@ -62,5 +62,16 @@
    1550666902：弹幕发送时间的10位的 unix 时间戳
    ```
 
-
    目前已经可以解析 **弹幕在视频中的发送时间** 和 **弹幕的发送时间** 两个属性。
+
+
+
+## Fixed-Problems
+
+### Bilibili 默认返回 gzip 编码的网页源码
+
+```
+import gzip
+gzip.decompress(response.read()).decode("utf-8")
+```
+
