@@ -34,7 +34,9 @@ chrome.extension.onMessage.addListener(
 			dataType: "json", // 是请求后，返回的数据将以json格式显示
 			data: command,
 			success: function (data) {
-				console.log(data["url"]);
+				status = data["status"]
+				timeline = data["danmu_timeline"]
+				
 				return;
 			}
 		});
