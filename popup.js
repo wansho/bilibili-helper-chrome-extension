@@ -7,16 +7,6 @@ start_button.onclick = function(element) {
 	chrome.tabs.query(
 		{active: true, currentWindow: true}, 
 		function(tabs){
-			/**
-			 * Use the chrome.tabs API to interact with the browser's tab system. 
-			 * You can use this API to create, modify, and rearrange tabs in the browser. 
-			 * 
-			 * The majority of the chrome.tabs API can be used without declaring any 
-			 * permission. However, the "tabs" permission is required in order to 
-			 * populate the url, title, and favIconUrl properties of Tab. 
-			 * 
-			 * https://developer.chrome.com/extensions/tabs
-			 */
 			chrome.tabs.query(
 				{active: true, currentWindow: true}, 
 				function(tabs) {
@@ -34,7 +24,7 @@ chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 		command = request.command;
 		if(command == "over"){ // 请求结束
-			console.log("over");
+			console.log("loader over");
 			$("#loader").css("visibility", "hidden"); // 显示 loader
 		}
 	}

@@ -25,6 +25,7 @@ chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {
 		// background.js 中的 log 是在扩展页面该扩展的背景页显示的
 		command = request.command; // command可能是detect命令，也可能直接是html页面
+		// console.log(command);
 		if(command == "start"){
 			return;
 		}
@@ -34,12 +35,25 @@ chrome.extension.onMessage.addListener(
 			dataType: "json", // 是请求后，返回的数据将以json格式显示
 			data: command,
 			success: function (data) {
-				status = data["status"];
-				timeline = data["danmu_timeline"];
+				let status = data["status"];
+				let timeline = data["danmu_timeline"];
 				console.log(status);
+				// 将 timeline 存储到本地，需要 storage 权限
+				chrome.storage.sync.set({timeline: timeline.toString()}, function() {
+					console.log("timeline saved"); // 存储完毕后调用该方法
+				});
 
 				// 发送消息给 popup.js，告诉它已收到结果，隐藏 loader
 				chrome.runtime.sendMessage({command: "over"});
+
+				// 发送消息给 content-script，让其在前端绘制 timeline
+				/*
+				chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+					chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
+					}
+				);
+				*/
+				chrome.tabs.sendMessage(0, {command: "start_rendering"});
 				return;
 			}
 		});

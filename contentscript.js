@@ -51,5 +51,17 @@ chrome.extension.onMessage.addListener(
 		if(command == "start"){ //收到 popup.js 发来的点击事件detect后，向background.js发送检测请求
 			send_message();
 		}
+		if(command == "start_rendering"){ // 开始将 timeline 数据渲染到前端
+			chrome.storage.sync.get('timeline', function(data) {
+				timeline = data.timeline;
+				chrome.runtime.sendMessage({command: data.toString()});
+				render(timeline);
+		  	});
+		}
 	}
 );
+
+function render(timeline){
+	// 在前端渲染数据
+	chrome.runtime.sendMessage({command: timeline});
+}
