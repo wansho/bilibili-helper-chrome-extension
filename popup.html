@@ -10,34 +10,59 @@
 				margin-bottom: 5px;
 				margin-right: 10px;
 				margin-left: 10px;
-				width: 130px;
-				height: 100px; /* 设置 popup 的长和宽 */
+				width: 250px;
+				height: 150px; /* 设置 popup 的长和宽 */
+			}
+			td {
+				vertical-align: middle;
+				text-align: center;
 			}
 
 		</style>
 	</head>
 	<body>
-		<div >
-			<h8> Bilibili-Helper </h8>
+		<div style="text-align: center;">
+			<h8 > Bilibili-Helper </h8>
 		</div>
 		<div style="height: 1px; background-color: #bdc3c7">
 		</div>
-		<div style="margin-top: 5px">
-			<div >
-				<button id="activate" type="button" class="btn btn-primary"
-					style="background-color: #e45d58; width: 100px">
-					Activate
-				</button>
-			</div>
-			<div >
-				<div class="loader-inner line-scale" id="loader" style="visibility: hidden">
-				</div>
+
+		<table class="table">
+			<tbody>
+				<tr>
+					<td>Switch</td>
+					<td>
+						<div class="pbl" style="margin: 0px; padding: 0px;">
+							<input type="checkbox" checked data-toggle="switch"
+								   data-on-color="danger" id="custom-switch-01"
+
+							/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Danmu Analysis</td>
+					<td >
+						<div style="margin: 0px; padding: 0px;">
+							<button id="activate" type="button" class="btn btn-primary btn-sm btn-danger">
+								Activate
+							</button>
+						</div>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+		<div >
+			<div class="loader-inner line-scale" id="loader" style="visibility: hidden">
 			</div>
 		</div>
 
 
 		<script src="static/flat_ui/js/jquery.min.js"></script>
 		<script src="static/flat_ui/js/flat-ui.min.js"></script>
+		<script src="static/flat_ui/js/application.js"></script>
 		<script src="static/js/loaders.css.js"></script>
 		<script src="popup.js"></script>
 

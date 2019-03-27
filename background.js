@@ -48,8 +48,6 @@ function send_Ajax(url_param){
 		success: function (data) {
 			let status = data["status"];
 			let timeline = data["danmu_timeline"];
-			console.log(timeline);
-			console.log(status);
 			// 将 timeline 存储到本地，需要 storage 权限
 			chrome.storage.local.set({timeline: timeline}, function() {
 				console.log("timeline saved"); // 存储完毕后调用该方法
