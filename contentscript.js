@@ -6,10 +6,7 @@
 // 周期性运行函数的 flag
 var flag = 0;
 
-$(".bilibili-player-video-time-total").on("send_message", send_message);
-
 function checkout_dom(){
-	
 	let video_length = document.getElementsByClassName("bilibili-player-video-time-total")[0];
 	if(typeof(video_length) == "undefined"){
 		return;
@@ -34,14 +31,20 @@ function send_message(){
 	let cookie = document.cookie;
 	let video_length = document.getElementsByClassName("bilibili-player-video-time-total")[0].textContent;
 	let video_info = {"url": url, "cookie": cookie, "video_length": video_length};
-	// 发送 messge 给 background.js，将 url 和 cookie 交给 background.js 处理
-	chrome.runtime.sendMessage({command: video_info});
+	// 注意，JavaScript 的字典类型不能直接 toString 转成字符串
+	chrome.storage.sync.set({url_param: video_info}, function() {
+		console.log("url param saved.");
+		command = "start_Ajax"
+		// 发送 messge 给 background.js，将 url 和 cookie 交给 background.js 处理
+		chrome.runtime.sendMessage({"command": command});
+	});
+
+
 }
 
 // 由于 DOM 加载完了，但是其中的参数并没有加载完，所以我们每秒都 check 一下 DOM 到底有没有真正加载完，
 // 加载完后，取消 check，然后发送
 flag = setInterval(checkout_dom, 1000); 
-
 
 // 接收 popup.js发送过来的消息
 chrome.extension.onMessage.addListener(
@@ -54,7 +57,7 @@ chrome.extension.onMessage.addListener(
 		if(command == "start_rendering"){ // 开始将 timeline 数据渲染到前端
 			chrome.storage.sync.get('timeline', function(data) {
 				timeline = data.timeline;
-				chrome.runtime.sendMessage({command: data.toString()});
+				console.log("load timeline success");
 				render(timeline);
 		  	});
 		}

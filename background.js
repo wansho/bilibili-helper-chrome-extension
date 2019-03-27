@@ -26,37 +26,45 @@ chrome.extension.onMessage.addListener(
 		// background.js 中的 log 是在扩展页面该扩展的背景页显示的
 		command = request.command; // command可能是detect命令，也可能直接是html页面
 		// console.log(command);
-		if(command == "start"){
+		if(command != "start_Ajax"){
 			return;
 		}
-		$.ajax({
-			url: "http://127.0.0.1:8000/bilibili_helper/",
-			type: "GET",
-			dataType: "json", // 是请求后，返回的数据将以json格式显示
-			data: command,
-			success: function (data) {
-				let status = data["status"];
-				let timeline = data["danmu_timeline"];
-				console.log(status);
-				// 将 timeline 存储到本地，需要 storage 权限
-				chrome.storage.sync.set({timeline: timeline.toString()}, function() {
-					console.log("timeline saved"); // 存储完毕后调用该方法
-				});
-
-				// 发送消息给 popup.js，告诉它已收到结果，隐藏 loader
-				chrome.runtime.sendMessage({command: "over"});
-
-				// 发送消息给 content-script，让其在前端绘制 timeline
-				/*
-				chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-					chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
-					}
-				);
-				*/
-				chrome.tabs.sendMessage(0, {command: "start_rendering"});
-				return;
-			}
+		chrome.storage.sync.get('url_param', function(data) {
+			url_param = data.url_param;
+			console.log("load url_param success");
+			console.log(typeof url_param);
+			console.log(url_param);
+			send_Ajax(url_param);
 		});
     }
 );
+
+function send_Ajax(url_param){
+	$.ajax({
+		url: "http://127.0.0.1:8000/bilibili_helper/",
+		type: "GET",
+		dataType: "json", // 是请求后，返回的数据将以json格式显示
+		data: url_param,
+		success: function (data) {
+			let status = data["status"];
+			let timeline = data["danmu_timeline"];
+			console.log(status);
+			// 将 timeline 存储到本地，需要 storage 权限
+			chrome.storage.sync.set({timeline: timeline.toString()}, function() {
+				console.log("timeline saved"); // 存储完毕后调用该方法
+			});
+
+			// 发送消息给 popup.js，告诉它已收到结果，隐藏 loader
+			chrome.runtime.sendMessage({command: "over"});
+
+			// 发送消息给 content-script，让其在前端绘制 timeline
+			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+				chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
+				}
+			);
+			// chrome.tabs.sendMessage(0, {command: "start_rendering"});
+			return;
+		}
+	});
+}
 
