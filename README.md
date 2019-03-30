@@ -1,5 +1,7 @@
 # Bilibili-Helper-Chrome-Extension
 
+Bilibili-Helper 是一款能够为 B站用户 提供 视频弹幕热度的 Chrome 插件。
+
 ## Introduction & Inspiration
 
 Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的 Chrome 插件。
