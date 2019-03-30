@@ -1,8 +1,10 @@
-# Bilibili-Helper
+# Bilibili-Helper-Chrome-Extension
 
 [TOC]
 
-## 待加入的功能
+
+
+## Todo
 
 1. 鉴黄 —> 脚本自动化举报，改视频标题并飘红警告
 2. 高能定位
