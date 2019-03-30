@@ -30,3 +30,4 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 * 完善用户UI
 
 如果你在使用中发现重大的Bug，欢迎来 Github 提交 issue 进行反馈。
+
