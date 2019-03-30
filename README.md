@@ -17,7 +17,7 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 ## Download
 
 * [Github Release](https://github.com/wansho/bilibili-helper-chrome-extension/releases)
-* [Chrome Extension](https://chrome.google.com/webstore/detail/bilibili-helper/hdppmpnmokdiaabkhgnooeimhmbahdkm?hl=zh-CN&gl=CN)
+* [Chrome Webstore](https://chrome.google.com/webstore/detail/bilibili-helper/hdppmpnmokdiaabkhgnooeimhmbahdkm?hl=zh-CN&gl=CN)
 * [百度网盘](https://pan.baidu.com/s/1ubmolUa4IFTaX9Dzame9Zg)  提取码: wesg
 
 关于如何离线安装 Chrome 插件，请手动百度关键词：*Chrome 插件离线安装*
