@@ -75,6 +75,18 @@ function render(timeline){
     let video_length = document.getElementsByClassName("bilibili-player-video-time-total")[0].textContent;
     let length = parseInt(video_length.split(":")[0]) * 60 + parseInt(video_length.split(":")[1]);
     let x_axis = Array.from({length:length}, (v,k) => k);
+    // 将 X 轴坐标转成视频的进度
+	for(var i=0; i < x_axis.length; i++){
+		var seconds = x_axis[i];
+		// 分钟部分
+		var minute = Math.floor(seconds/60).toString()
+		minute.length == 1 ? minute = "0" + minute : minute = minute
+		// 秒部分
+		var second = Math.floor(seconds % 60).toString()
+		second.length == 1 ? second = "0" + second : second = second
+		x_axis[i] = '"' + minute + ":" + second + '"'
+	}
+	// 填充 values
 	let values = [];
 	for(var i=0; i < x_axis.length; i++){
 		let tmp = timeline[i]
@@ -89,9 +101,9 @@ function render(timeline){
 	values = "[" + values.toString() + "]"
 
 
-    var echart = "<div id=\"bilibili-helper\" style=\"width: " + progress_length + "; height: 50px; margin: 0 auto;\"></div>\n" +
+    var echart = "<div id=\"danmu-trend\" style=\"width: " + progress_length + "; height: 50px; margin: 0 auto;\"></div>\n" +
 		"<script type=\"text/javascript\">\n" +
-		"    var myChart = echarts.init(document.getElementById(\"bilibili-helper\"));\n" +
+		"    var myChart = echarts.init(document.getElementById(\"danmu-trend\"));\n" +
 		"    var option = {\n" +
 		"        tooltip: {\n" +
 		"            trigger: 'axis'\n" +
@@ -118,7 +130,6 @@ function render(timeline){
 		"        }, \n" +
 		"        yAxis: {\n" +
 		"            type: 'value', \n" +
-		"            data: " + x_axis + ", \n" +
 		"            axisLine: {\n" +
 		"                show: false\n" +
 		"            },\n" +
