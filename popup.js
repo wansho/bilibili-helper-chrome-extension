@@ -1,5 +1,6 @@
 // popup 用来 和 Chrome Extension 的用户UI，也就是 popup.html 进行交互
 
+$(document).ready(function() { $('body').bootstrapMaterialDesign(); });
 
 let start_button = document.getElementById("activate");
 // 为按钮添加点击事件
