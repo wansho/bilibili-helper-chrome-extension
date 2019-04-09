@@ -16,13 +16,11 @@ function checkout_dom(){
 	}else{
 		// DOM 加载完成，取消定时调用函数的操作，并发送 message
 		clearInterval(flag);
-		send_message();
+		danmu_trend_switch_check_and_message();
 		// 获取 progress_width 并存储到本地
 		progress_width = get_progress_width();
 	}
 }
-
-
 
 // 对 video_length 进行实时的 check，如果发现长度发生变化，则对弹幕热度条进行适配
 var flag_restart_danmu_trend = setInterval(checkout_width, 2000);
@@ -48,8 +46,6 @@ function checkout_width(){
 	}
 }
 
-
-
 function get_video_length_view(){
 	// 获取 video 的时长，返回的是时长控件
 	return document.getElementsByClassName("bilibili-player-video-time-total")[0];
@@ -61,7 +57,7 @@ function get_progress_width(){
 	return progress;
 }
 
-function send_message(){
+function send_message_for_ajax(){
 	// 发送 messge 给 background.js，将 url 和 cookie 交给 background.js 处理
 	let url = document.documentURI;
 	let cookie = document.cookie;
@@ -81,19 +77,24 @@ chrome.extension.onMessage.addListener(
 	// background.js 中的log时在扩展页面该扩展的背景页显示的
 		command = request.command;
 		if(command == "danmu_trend_switch_change"){
-			chrome.storage.sync.get("danmn_trend_switch", function(result) {
-				let conf = result.danmn_trend_switch;
-				danmu_plugin_duplicates();
-				if(conf == "on"){
-					send_message();
-				}
-			});
+			danmu_trend_switch_check_and_message();
 		}
 		if(command == "start_rendering"){ // 开始将 timeline 数据渲染到前端
 			get_data_and_render();
 		}
 	}
 );
+
+function danmu_trend_switch_check_and_message(){
+	// 判断是否开启了 switch，如果开启了，则发送 message
+	chrome.storage.sync.get("danmn_trend_switch", function(result) {
+		let conf = result.danmn_trend_switch;
+		danmu_plugin_duplicates();
+		if(conf == "on"){
+			send_message_for_ajax();
+		}
+	});
+}
 
 function get_data_and_render(){
 	// 获取存储的数据并渲染到前端
