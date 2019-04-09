@@ -1,6 +1,7 @@
 {
-	"name" : "Bilibili-Helper",
-	"description" : "Bilibili-Helper",
+	"name" : "__MSG_appName__",
+	"description" : "__MSG_appDesc__",
+	"default_locale": "zh_CN",
 	"version" : "1.0",
 	"manifest_version" : 2,
 	

@@ -1,0 +1,17 @@
+{
+  "appName": {
+    "message": "Bilibili-Helper"
+  },
+  "appDesc": {
+    "message": "提供一些实用的 逛B站 的小工具"
+  },
+  "provided_functions": {
+    "message": "功能"
+  },
+  "switchs": {
+    "message": "开关"
+  },
+  "danmu_trend": {
+    "message": "弹幕热度"
+  }
+}

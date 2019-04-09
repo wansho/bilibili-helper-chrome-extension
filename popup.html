@@ -2,10 +2,11 @@
 	<head>
 		<title> Bilibili-Helper </title>
 		<link rel="stylesheet" type="text/css" href="static/css/bootstrap-material-design.css"/>
-		<link rel="stylesheet" type="text/css" href="static/css/loaders.css" />
-		<link rel="stylesheet" type="text/css" href="static/css/light.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="static/css/light.css" /> -->
 		<style>
-
+			body {
+				width: 250px;
+			}
 
 		</style>
 	</head>
@@ -13,93 +14,50 @@
 
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Brand</a>
+				<a class="navbar-brand" href="#">Bilibili-Helper</a>
 			</div>
-			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav">
-					<li class="active">
-						<a href="#">Link</a>
-					</li>
-					<li>
-						<a href="#">Link</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="glyphicon glyphicon-thumbs-up"></i>
-						</a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li>
-								<a href="#">Action</a>
-							</li>
-							<li>
-								<a href="#">Another action</a>
-							</li>
-							<li>
-								<a href="#">Something else here</a>
-							</li>
-							<li>
-								<a href="#">Separated link</a>
-							</li>
-							<li>
-								<a href="#">One more separated link</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+			<a href="https://github.com/wansho" id="github">
+				<img src="static/images/github.png" class="img-rounded"/>
+			</a>
+
+
 		</nav>
 
-		<div style="text-align: center;">
-			<h8 > Bilibili-Helper </h8>
-		</div>
-		<div style="height: 1px; background-color: #bdc3c7">
-		</div>
+		<section>
 
-		<table class="table">
-			<tbody>
+			<table class="table">
+			  <thead>
 				<tr>
-					<td>Switch</td>
-					<td>
-						<div class="switch">
-							<label>
-							  <input type="checkbox" checked>
-							  Wi-Fi
-							</label>
-						  </div>
-					</td>
-					<td>
-
-					</td>
+				  <th scope="col" id="provided_functions">功能</th>
+				  <th scope="col" id="switchs">开关</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <td>
+					  <img src="static/images/danmu_trend.png" class="img-rounded"/>
+					  <span id="danmu_trend"></span>
+				  </td>
+				  <td>
+					<div class="switch">
+						<label>
+						  <input type="checkbox" checked class="custom-control-input" id="danmu_trend_switch">
+						</label>
+					</div>
+				  </td>
 				</tr>
 				<tr>
-					<td>Danmu Analysis</td>
-					<td>
-						<div style="margin: 0px; padding: 0px;">
-							<button id="activate" type="button" class="btn btn-xs btn-info">
-								Activate
-							</button>
-						</div>
-					</td>
-					<td>
-
-					</td>
+				  <td>default</td>
+				  <td>default</td>
 				</tr>
+			  </tbody>
+			</table>
 
-			</tbody>
-		</table>
-
-		<div >
-			<div class="loader-inner line-scale" id="loader" style="visibility: hidden">
-			</div>
-		</div>
+		</section>
 
 		<script src="static/js/jquery-2.0.3.min.js"></script>
 		<script src="static/js/popper.min.js"></script>
 		<script src="static/js/bootstrap-material-design.js"></script>
-		<script src="static/js/loaders.css.js"></script>
 		<script src="popup.js"></script>
 
 	</body>

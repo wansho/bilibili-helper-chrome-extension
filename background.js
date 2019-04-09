@@ -53,9 +53,6 @@ function send_Ajax(url_param){
 				console.log("timeline saved"); // 存储完毕后调用该方法
 			});
 
-			// 发送消息给 popup.js，告诉它已收到结果，隐藏 loader
-			chrome.runtime.sendMessage({command: "over"});
-
 			// 发送消息给 content-script，让其在前端绘制 timeline
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 				chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
