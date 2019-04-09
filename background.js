@@ -18,6 +18,10 @@ chrome.runtime.onInstalled.addListener(function() {
 			actions: [new chrome.declarativeContent.ShowPageAction()]
 		}]);
 	});
+
+	// 初始化开关
+	chrome.storage.sync.set({danmn_trend_switch: 'on'}, function() {
+	});
 });
 
 // 接收 contentscript.js和 popup.js 发送过来的 html 文件进行分析
@@ -52,9 +56,6 @@ function send_Ajax(url_param){
 			chrome.storage.local.set({timeline: timeline}, function() {
 				console.log("timeline saved"); // 存储完毕后调用该方法
 			});
-
-			// 发送消息给 popup.js，告诉它已收到结果，隐藏 loader
-			chrome.runtime.sendMessage({command: "over"});
 
 			// 发送消息给 content-script，让其在前端绘制 timeline
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {

@@ -1,6 +1,7 @@
 {
-	"name" : "Bilibili-Helper",
-	"description" : "Bilibili-Helper",
+	"name" : "__MSG_appName__",
+	"description" : "__MSG_appDesc__",
+	"default_locale": "zh_CN",
 	"version" : "1.0",
 	"manifest_version" : 2,
 	
@@ -15,7 +16,7 @@
 	],
 	
 	"background" : {
-		"scripts" : ["static/js/jquery.min.js", "background.js"],
+		"scripts" : ["static/js/jquery-2.0.3.min.js", "background.js"],
 		"persistent" : false
 	},
 	
@@ -31,7 +32,7 @@
 	"content_scripts": [
 		{
 		"matches": ["https://www.bilibili.com/video/av*"],
-		"js": ["static/js/jquery.min.js", "static/js/echarts.min.js", "contentscript.js"],
+		"js": ["static/js/jquery-2.0.3.min.js", "static/js/echarts.min.js", "contentscript.js"],
 		"run_at": "document_end"
 		}
 	],

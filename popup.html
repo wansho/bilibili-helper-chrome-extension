@@ -1,69 +1,65 @@
 <html>
 	<head>
 		<title> Bilibili-Helper </title>
-		<link rel="stylesheet" type="text/css" href="static/flat_ui/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="static/flat_ui/css/flat-ui.min.css"/>
-		<link rel="stylesheet" type="text/css" href="static/css/loaders.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/bootstrap-material-design.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="static/css/light.css" /> -->
 		<style>
 			body {
-				margin-top: 5px;
-				margin-bottom: 5px;
-				margin-right: 10px;
-				margin-left: 10px;
 				width: 250px;
-				height: 150px; /* 设置 popup 的长和宽 */
-			}
-			td {
-				vertical-align: middle;
-				text-align: center;
 			}
 
 		</style>
 	</head>
 	<body>
-		<div style="text-align: center;">
-			<h8 > Bilibili-Helper </h8>
-		</div>
-		<div style="height: 1px; background-color: #bdc3c7">
-		</div>
 
-		<table class="table">
-			<tbody>
-				<tr>
-					<td>Switch</td>
-					<td>
-						<div class="pbl" style="margin: 0px; padding: 0px;">
-							<input type="checkbox" checked data-toggle="switch"
-								   data-on-color="danger" id="custom-switch-01"
-
-							/>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>Danmu Analysis</td>
-					<td >
-						<div style="margin: 0px; padding: 0px;">
-							<button id="activate" type="button" class="btn btn-primary btn-sm btn-danger">
-								Activate
-							</button>
-						</div>
-					</td>
-				</tr>
-
-			</tbody>
-		</table>
-
-		<div >
-			<div class="loader-inner line-scale" id="loader" style="visibility: hidden">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Bilibili-Helper</a>
 			</div>
-		</div>
+			<a href="https://github.com/wansho" id="github">
+				<img src="static/images/github.png" class="img-rounded"/>
+			</a>
 
 
-		<script src="static/flat_ui/js/jquery.min.js"></script>
-		<script src="static/flat_ui/js/flat-ui.min.js"></script>
-		<script src="static/flat_ui/js/application.js"></script>
-		<script src="static/js/loaders.css.js"></script>
+		</nav>
+
+		<section>
+
+			<table class="table">
+			  <thead>
+				<tr>
+				  <th scope="col" id="provided_functions">功能</th>
+				  <th scope="col" id="switchs">开关</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <td>
+					  <img src="static/images/danmu_trend.png" class="img-rounded"/>
+					  <span id="danmu_trend"></span>
+				  </td>
+				  <td>
+					<div class="switch">
+						<label>
+						  <input type="checkbox" checked class="custom-control-input" id="danmu_trend_switch">
+						</label>
+					</div>
+				  </td>
+				</tr>
+				<!--
+				<tr>
+				  <td>default</td>
+				  <td>default</td>
+				</tr>
+				-->
+			  </tbody>
+			</table>
+
+		</section>
+
+		<script src="static/js/jquery-2.0.3.min.js"></script>
+		<script src="static/js/popper.min.js"></script>
+		<script src="static/js/bootstrap-material-design.js"></script>
 		<script src="popup.js"></script>
 
 	</body>
