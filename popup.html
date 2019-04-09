@@ -1,26 +1,58 @@
 <html>
 	<head>
 		<title> Bilibili-Helper </title>
-		<link rel="stylesheet" type="text/css" href="static/flat_ui/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="static/flat_ui/css/flat-ui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="static/css/custom.css"/>
 		<link rel="stylesheet" type="text/css" href="static/css/loaders.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/light.css" />
 		<style>
-			body {
-				margin-top: 5px;
-				margin-bottom: 5px;
-				margin-right: 10px;
-				margin-left: 10px;
-				width: 250px;
-				height: 150px; /* 设置 popup 的长和宽 */
-			}
-			td {
-				vertical-align: middle;
-				text-align: center;
-			}
+
 
 		</style>
 	</head>
 	<body>
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#">Link</a>
+					</li>
+					<li>
+						<a href="#">Link</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="glyphicon glyphicon-thumbs-up"></i>
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#">Action</a>
+							</li>
+							<li>
+								<a href="#">Another action</a>
+							</li>
+							<li>
+								<a href="#">Something else here</a>
+							</li>
+							<li>
+								<a href="#">Separated link</a>
+							</li>
+							<li>
+								<a href="#">One more separated link</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
 		<div style="text-align: center;">
 			<h8 > Bilibili-Helper </h8>
 		</div>
@@ -32,22 +64,28 @@
 				<tr>
 					<td>Switch</td>
 					<td>
-						<div class="pbl" style="margin: 0px; padding: 0px;">
-							<input type="checkbox" checked data-toggle="switch"
-								   data-on-color="danger" id="custom-switch-01"
+						<div class="switch">
+							<label>
+							  <input type="checkbox" checked>
+							  Wi-Fi
+							</label>
+						  </div>
+					</td>
+					<td>
 
-							/>
-						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>Danmu Analysis</td>
-					<td >
+					<td>
 						<div style="margin: 0px; padding: 0px;">
-							<button id="activate" type="button" class="btn btn-primary btn-sm btn-danger">
+							<button id="activate" type="button" class="btn btn-xs btn-info">
 								Activate
 							</button>
 						</div>
+					</td>
+					<td>
+
 					</td>
 				</tr>
 
@@ -59,10 +97,8 @@
 			</div>
 		</div>
 
-
-		<script src="static/flat_ui/js/jquery.min.js"></script>
-		<script src="static/flat_ui/js/flat-ui.min.js"></script>
-		<script src="static/flat_ui/js/application.js"></script>
+		<script src="static/js/jquery-2.0.3.min.js"></script>
+		<script src="static/js/bootstrap.min.js"></script>
 		<script src="static/js/loaders.css.js"></script>
 		<script src="popup.js"></script>
 

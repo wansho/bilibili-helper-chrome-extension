@@ -50,6 +50,8 @@ chrome.extension.onMessage.addListener(
 	// background.js 中的log时在扩展页面该扩展的背景页显示的
 		command = request.command;
 		if(command == "start"){ //收到 popup.js 发来的点击事件detect后，向background.js发送检测请求
+			// 先判断弹幕热度插件是否已经存在，如果存在，则删除该插件
+			danmu_plugin_duplicates();
 			send_message();
 		}
 		if(command == "start_rendering"){ // 开始将 timeline 数据渲染到前端
@@ -61,6 +63,13 @@ chrome.extension.onMessage.addListener(
 		}
 	}
 );
+
+function danmu_plugin_duplicates(){
+	// 判断弹幕热度插件是否存在，如果存在，则删除
+	if($("#danmu-trend-plugin").length > 0){
+		$("#danmu-trend-plugin").remove();
+	}
+}
 
 function render(timeline){
 	// 在前端渲染数据
@@ -101,9 +110,9 @@ function render(timeline){
 	values = "[" + values.toString() + "]"
 
 
-    var echart = "<div id=\"danmu-trend\" style=\"width: " + progress_length + "; height: 50px; margin: 0 auto;\"></div>\n" +
+    var echart = "<div id=\"danmu-trend-plugin\" style=\"width: " + progress_length + "; height: 50px; margin: 0 auto;\"></div>\n" +
 		"<script type=\"text/javascript\">\n" +
-		"    var myChart = echarts.init(document.getElementById(\"danmu-trend\"));\n" +
+		"    var myChart = echarts.init(document.getElementById(\"danmu-trend-plugin\"));\n" +
 		"    var option = {\n" +
 		"        tooltip: {\n" +
 		"            trigger: 'axis'\n" +
