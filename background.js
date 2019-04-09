@@ -18,6 +18,10 @@ chrome.runtime.onInstalled.addListener(function() {
 			actions: [new chrome.declarativeContent.ShowPageAction()]
 		}]);
 	});
+
+	// 初始化开关
+	chrome.storage.sync.set({danmn_trend_switch: 'on'}, function() {
+	});
 });
 
 // 接收 contentscript.js和 popup.js 发送过来的 html 文件进行分析

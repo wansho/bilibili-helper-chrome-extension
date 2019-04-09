@@ -80,16 +80,14 @@ chrome.extension.onMessage.addListener(
 	function(request, sender, sendResponse) {
 	// background.js 中的log时在扩展页面该扩展的背景页显示的
 		command = request.command;
-		if(command == "danmu_trend_on"){ //收到 popup.js 发来的点击事件detect后，向background.js发送检测请求
-			// 先判断弹幕热度插件是否已经存在，如果存在，则删除该插件
-			console.log("content-script receive:" + command);
-			danmu_plugin_duplicates();
-			send_message();
-			return;
-		}
-		if(command == "danmu_trend_off"){ // 关闭弹幕趋势
-			danmu_plugin_duplicates();
-			return;
+		if(command == "danmu_trend_switch_change"){
+			chrome.storage.sync.get("danmn_trend_switch", function(result) {
+				let conf = result.danmn_trend_switch;
+				danmu_plugin_duplicates();
+				if(conf == "on"){
+					send_message();
+				}
+			});
 		}
 		if(command == "start_rendering"){ // 开始将 timeline 数据渲染到前端
 			get_data_and_render();

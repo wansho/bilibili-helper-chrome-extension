@@ -4,7 +4,8 @@
 $(document).ready(function() { $('body').bootstrapMaterialDesign(); });
 // 国际化
 international_init();
-
+// 初始化 danmu_trend_switch
+danmu_trend_switch_init();
 
 function send_message(msg){
 	// 和 content-script 进行通信
@@ -17,16 +18,33 @@ function send_message(msg){
 	);
 }
 
-$('#danmu_trend_switch').on('change', function(){ // on change of state
-	let status = $('#danmu_trend_switch').is(":checked")
-	if(status){
-		console.log("danmu_trend_switch_on");
-		send_message("danmu_trend_on");
-	}else{
-		console.log("danmu_trend_switch_off");
-		send_message("danmu_trend_off");
-	}
-})
+function danmu_trend_switch_init(){
+	// 读取 danmu_trend_switch 的原始配置
+	chrome.storage.sync.get("danmn_trend_switch", function(result) {
+		let conf = result.danmn_trend_switch;
+		if(conf == "on"){
+			$('#danmu_trend_switch').attr("checked", true);
+		}
+		if(conf == "off"){
+			$('#danmu_trend_switch').attr("checked", false);
+		}
+	});
+	// 添加点击事件
+	$('#danmu_trend_switch').on('change', function(){
+		// danmu_trend_switch 添加点击事件
+		let is_checked = $('#danmu_trend_switch').is(":checked")
+		if(is_checked){
+			console.log("danmu_trend_switch_on");
+			chrome.storage.sync.set({danmn_trend_switch: 'on'}, function() {
+			});
+		}else{
+			console.log("danmu_trend_switch_off");
+			chrome.storage.sync.set({danmn_trend_switch: 'off'}, function() {
+			});
+		}
+		send_message("danmu_trend_switch_change");
+	});
+}
 
 // 给超链接添加点击事件，跳转到 GitHub
 $("#github").click(function(){
