@@ -35,7 +35,8 @@ function checkout_width(){
 			return;
 		}else{
 			let new_progress_width = get_progress_width();
-			if(Math.abs(new_progress_width - old_progress_width) > 30){ // progress_width 在一个范围内变化，所以需要有一个区间
+			if(Math.abs(new_progress_width - old_progress_width) > 30){
+				// 由于 progress_width 受到 echart 图表的影响，其宽度会变化，所以需要有一个缓冲区间
 				// 读取数据并重新渲染
 				progress_width = new_progress_width;
 				console.log("restart danmu_trend");
