@@ -4,7 +4,7 @@
 
 Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的 Chrome 插件。
 
-其提供的主要功能为：**弹幕热度的准确定位**
+其提供的主要功能为：**弹幕/视频 热点的准确定位**
 
 本人喜欢在 B 站上看英雄联盟比赛的录播，苦于录播时间长，往往需要手动拉进度条，找开团的时间点，于是我干脆自己做了一个插件，通过弹幕热度，帮助自己找到视频热点。效果如图：
 
@@ -16,7 +16,7 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 * [Github Release](https://github.com/wansho/bilibili-helper-chrome-extension/releases)
 * [Chrome Extension](https://chrome.google.com/webstore/detail/bilibili-helper/hdppmpnmokdiaabkhgnooeimhmbahdkm?hl=zh-CN&gl=CN)
-* [百度网盘](https://pan.baidu.com/s/1ubmolUa4IFTaX9Dzame9Zg)  提取码: wesg
+* [百度网盘](https://pan.baidu.com/s/14uFFnoBGUITDbLWjDOqc-A)  提取码: 3sgg
 
 关于如何离线安装 Chrome 插件，请手动百度关键词：*Chrome 插件离线安装*
 
