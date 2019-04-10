@@ -12,7 +12,7 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 该插件能够在视频加载完成后，在视频下方生成一个弹幕热度图，通过弹幕热度，我们可以比较准确的定位视频的热点，上图的比赛中，开局后的每一个弹幕峰值，往往都是一次团战或者击杀。
 
-## Download
+## Download & Installation
 
 * [Github Release](https://github.com/wansho/bilibili-helper-chrome-extension/releases)
 * [Chrome Extension](https://chrome.google.com/webstore/detail/bilibili-helper/hdppmpnmokdiaabkhgnooeimhmbahdkm?hl=zh-CN&gl=CN)
@@ -20,14 +20,20 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 关于如何离线安装 Chrome 插件，请手动百度关键词：*Chrome 插件离线安装*
 
+## Tutorial
+
+![Tutorial](https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/tutorial.jpg)
+
+打开 弹幕热度开关 即可放心食用弹幕热度插件。
+
 ## Todo
 
 目前该插件主要功能已实现，但仍有很多 Bug，后期有时间的话，我会把以下问题都解决：
 
 * 实现番剧的弹幕分析兼容
 
-* 实现全屏时的兼容
-* 完善用户UI
+* 实现全屏时的兼容 —> 完成
+* 完善用户UI —> 完成（使用了 material design 的 UI）
 
 如果你在使用中发现重大的Bug，欢迎来 Github 提交 issue 进行反馈。
 
