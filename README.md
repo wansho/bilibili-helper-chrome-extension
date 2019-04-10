@@ -28,6 +28,12 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 打开 弹幕热度开关 即可放心食用弹幕热度插件。
 
+## Dev
+
+### Data Flow
+
+![data-flow](http://assets.processon.com/chart_image/5cad413ae4b0b39803e4165b.png?_=1554860808775)
+
 ## Todo
 
 目前该插件主要功能已实现，但仍有很多 Bug，后期有时间的话，我会把以下问题都解决：
