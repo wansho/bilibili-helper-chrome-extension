@@ -11,7 +11,7 @@
 		"tabs",
 		"storage",
 		"https://comment.bilibili.com/*",
-		"http://127.0.0.1/*",
+		"http://127.0.0.1:8000/*",
 		"http://sentiweibo.top/*"
 	],
 	

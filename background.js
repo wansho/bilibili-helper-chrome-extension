@@ -45,7 +45,7 @@ chrome.extension.onMessage.addListener(
 
 function send_Ajax(url_param){
 	$.ajax({
-		url: "http://sentiweibo.top/bilibili_helper/",
+		url: "http://127.0.0.1:8000/bilibili_helper/",
 		type: "GET",
 		dataType: "json", // 是请求后，返回的数据将以json格式显示
 		data: url_param,
