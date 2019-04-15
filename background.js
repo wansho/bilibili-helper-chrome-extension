@@ -45,7 +45,7 @@ chrome.extension.onMessage.addListener(
 
 function send_Ajax(url_param){
 	$.ajax({
-		url: "http://127.0.0.1:8000/bilibili_helper/",
+		url: "http://sentiweibo.top/bilibili_helper/", //  http://127.0.0.1:8000/bilibili_helper/
 		type: "GET",
 		dataType: "json", // 是请求后，返回的数据将以json格式显示
 		data: url_param,
@@ -62,7 +62,6 @@ function send_Ajax(url_param){
 					chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
 				});
 			});
-
 			// 发送消息给 content-script，让其在前端绘制 timeline
 
 			return;

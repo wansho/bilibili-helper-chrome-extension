@@ -118,6 +118,43 @@ function danmu_plugin_duplicates(){
 	}
 }
 
+function check_if_in_hot_period(second, climax_period_list){
+	// 判断某一秒是否在热点区间里面
+	for(var i=0; i<climax_period_list.length; i++){
+		var start_seconds = climax_period_list[i]["start_time"];
+		var end_seconds = climax_period_list[i]["end_time"];
+		if(second>=start_seconds && second<end_seconds){
+			return true;
+		}
+	}
+	return false;
+}
+
+function generate_series(start_second, end_second, hot_flag, data_list){
+	// 生成 series，将 data_list 转成字符串，并返回一个字符串化的 series
+	var color = (hot_flag==1? "'rgb(255, 140, 102)'":"'rgb(226, 226, 226)'"); // 226, 226, 226
+	// data_list = "[" + data_list.toString() + "]";
+	data_list_str = "";
+	for(var i=0; i<data_list.length; i++){
+		data_list_str = data_list_str + "[" + data_list[i].toString() + "], ";
+	}
+	data_list_str = "[" + data_list_str.substring(0, data_list_str.length-2) + "]";
+	series_item = "{\n" +
+		"            name: '热度',\n" +
+		"            type: 'line',\n" +
+		"            smooth: true,\n" +
+		"            data: " + data_list_str + ",\n" +
+		"            symbol:'none',\n" +
+		"            areaStyle: {\n" +
+		"                normal: {\n" +
+		"                    color: " + color + ",\n" +
+		"                    opacity: 1\n" +
+		"                }\n" +
+		"            }\n" +
+		"        }\n";
+	return series_item;
+}
+
 function render(timeline, climax_period_list){
 	// 在前端渲染数据
 	// $(".tit").append("追加文本");
@@ -151,10 +188,52 @@ function render(timeline, climax_period_list){
 			values.push(tmp);
 		}
 	}
+
+	// 生成所有区间的属性，区分热点区间和非热点区间
+	series_list = [];
+	statistics_start_second = 0;
+	statistics_end_second = 0;
+	hot_flag = 0; // 标记当前区间的属性，是否是 hot period
+	data_list = [];
+	for(var second=0; second < length; second++){
+		if(check_if_in_hot_period(second, climax_period_list)){ // 是热点区间
+			if(hot_flag == 1){ // 前一秒也是热点区间
+				statistics_end_second = second;
+				data_list.push([second, values[second]])
+			}else{ // 前一秒不是热点区间
+				// 先生成前一个时间段的区间
+				statistics_end_second = second - 1;
+				data_list.push([second, values[second]])
+				series_item = generate_series(statistics_start_second, statistics_end_second, hot_flag, data_list);
+				series_list.push(series_item);
+				data_list = []
+				// 再初始化下一个区间
+				hot_flag = 1;
+				statistics_start_second = second;
+				data_list.push([second, values[second]])
+			}
+		}else{ // 不是热点区间
+			if(hot_flag == 0){ // 前一秒也不是热点区间
+				statistics_end_second = second;
+				data_list.push([second, values[second]])
+			}else{ // 前一秒是热点区间
+				// 先生成前一个时间段的区间
+				statistics_end_second = second - 1;
+				data_list.push([second, values[second]])
+				series_item = generate_series(statistics_start_second, statistics_end_second, hot_flag, data_list);
+				series_list.push(series_item);
+				data_list = []
+				// 再初始化下一个区间
+				hot_flag = 0;
+				statistics_start_second = second;
+				data_list.push([second, values[second]])
+			}
+		}
+	}
+	series_list.push(generate_series(statistics_start_second, second, hot_flag, data_list));
 	// 将 x_axis 和 values 转成字符串的形式
 	x_axis = "[" + x_axis.toString() + "]";
-	values = "[" + values.toString() + "]";
-
+	series_list = "[" + series_list.toString() + "]";
 
     var echart = "<div id=\"danmu-trend-plugin\" style=\"width: " + progress_length + "; height: 50px; margin: 0 auto;\"></div>\n" +
 		"<script type=\"text/javascript\">\n" +
@@ -195,23 +274,7 @@ function render(timeline, climax_period_list){
 		"                show: false\n" +
 		"            },\n" +
 		"        },\n" +
-		"        series: [{\n" +
-		"            name: '热度',\n" +
-		"            type: 'line',\n" +
-		"            smooth: true,\n" +
-		"            symbol:'none',\n" +
-		"            areaStyle: {\n" +
-		"                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{\n" +
-		"                    offset: 0,\n" +
-		"                    color: 'rgb(255, 70, 131)'\n" +
-		"                }, {\n" +
-		"                    offset: 1,\n" +
-		"                    color: 'rgb(255, 158, 68)'\n" +
-		"                }])\n" +
-		"            },\n" +
-		"            data: " + values + ", \n" +
-		"            }\n" +
-		"        ]\n" +
+		"        series: " + series_list + "\n" +
 		"    };\n" +
 		"    myChart.setOption(option);\n" +
 		"</script> "
