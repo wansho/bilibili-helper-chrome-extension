@@ -14,6 +14,9 @@ function checkout_dom(){
 	if(typeof(video_length_view) == "undefined"){
 		return;
 	}else{
+		if(video_length_view.textContent == "00:00"){
+			return;
+		}
 		// DOM 加载完成，取消定时调用函数的操作，并发送 message
 		clearInterval(flag);
 		danmu_trend_switch_check_and_message();
@@ -99,10 +102,12 @@ function danmu_trend_switch_check_and_message(){
 
 function get_data_and_render(){
 	// 获取存储的数据并渲染到前端
-	chrome.storage.local.get('timeline', function(data) {
+	chrome.storage.local.get(["timeline", "climax_period_list"], function(data) {
 		timeline = data.timeline;
+		climax_period_list = data.climax_period_list;
 		console.log("load timeline success");
-		render(timeline);
+		console.log("load climax_period_list success");
+		render(timeline, climax_period_list);
 	});
 }
 
@@ -113,7 +118,7 @@ function danmu_plugin_duplicates(){
 	}
 }
 
-function render(timeline){
+function render(timeline, climax_period_list){
 	// 在前端渲染数据
 	// $(".tit").append("追加文本");
 	// 在 class = "bilibili-player-video-bottom-area" 的 div 上面加上一个 bar，用来显示弹幕热度

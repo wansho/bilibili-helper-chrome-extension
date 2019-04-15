@@ -52,16 +52,19 @@ function send_Ajax(url_param){
 		success: function (data) {
 			let status = data["status"];
 			let timeline = data["danmu_timeline"];
+			let climax_period_list = data["climax_period_list"];
 			// 将 timeline 存储到本地，需要 storage 权限
-			chrome.storage.local.set({timeline: timeline}, function() {
-				console.log("timeline saved"); // 存储完毕后调用该方法
+			chrome.storage.local.set({timeline: timeline,
+				climax_period_list: climax_period_list}, function() {
+				console.log("save timeline success"); // 存储完毕后调用该方法
+				console.log("save climax_period_list success");
+				chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+					chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
+				});
 			});
 
 			// 发送消息给 content-script，让其在前端绘制 timeline
-			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-				chrome.tabs.sendMessage(tabs[0].id, {command: "start_rendering"});
-				}
-			);
+
 			return;
 		}
 	});
