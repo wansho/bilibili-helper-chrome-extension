@@ -18,7 +18,7 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 第二个初衷来源于 [B站克里斯事件](https://www.zhihu.com/question/268705696/answer/342174669) 和 [B站ASMR被禁事件](<https://tech.sina.com.cn/i/2018-06-09/doc-ihcscwxc2366854.shtml>)，B站现在低龄化越来越严重，与此同时，B站的软色情也越来越严重，类似克里斯事件这么恶劣的事件，实际上每天都有可能发生，而 B 站表面上是加强了内容审核，实际上一直都在纵容这些软色情视频。尤其是事情发生一年后的今天，B站仍然不知悔改，各种软色情视频满天飞，舞蹈区已经成了软色情的重灾区。所以，插件的第二个主要功能，就是鉴别这些软色情视频，提醒青少年们远离这些精神鸦片。
 
-伊甸园中的红苹果 [![](https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/icon.jpg)]()代表了诱惑和智慧，我选择用红苹果作为插件的标志，用来警醒大家，用自己的智慧，抵制 B 站的软色情。
+伊甸园中的红苹果 [![](https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/icon.jpg)]()代表了诱惑和智慧，我选择用红苹果作为插件的标志，警醒大家，用自己的智慧，抵制 B 站的软色情。
 
 ### 弹幕热度可视化/高能定位
 
@@ -48,7 +48,7 @@ B 站的软色情视频已经屡次被点名，但是屡教不改：
 
 * 2019-04  [13岁让女老师怀孕，15岁的同居生活…知名网站被曝低俗内容泛滥](https://www.ithome.com/0/419/302.htm)
 
-B站不但在软色情方面不作为，甚至会推送推荐这些不健康的视频。只要看了一个软色情相关的视频，就会推荐类似的视频。有的人会说，算法是中立的，技术没有对错之分，但这只是借口而已，难道算法不是人写的吗？难道算法不能对软色情视频进行过滤吗？
+B站不但在软色情方面不作为，甚至会推送推荐这些不健康的视频。而且只要看了一个软色情相关的视频，就会推荐类似的视频。有的人会说，算法是中立的，技术没有对错之分，但这只是借口而已，难道算法不是人写的吗？难道算法不能对软色情视频进行过滤吗？
 
 ## Download & Installation
 
@@ -73,6 +73,10 @@ B站不但在软色情方面不作为，甚至会推送推荐这些不健康的�
 ### Data Flow
 
 ![data-flow](http://assets.processon.com/chart_image/5cad413ae4b0b39803e4165b.png?_=1554860808775)
+
+### Chrome Extension Develop Summary
+
+[**chrome-extension-summary**](<https://github.com/wansho/chrome-extension-summary>)
 
 ## Todo
 
