@@ -4,14 +4,16 @@
 
 ## Todo
 
-| 功能               | 效果                                     | 进展        |
-| ------------------ | ---------------------------------------- | ----------- |
-| 鉴黄（软色情鉴别） | 脚本自动化举报 / 前端警报                | 未完成 next |
-| 高能定位           |                                          | 完成        |
-| 弹幕热度趋势       |                                          | 完成        |
-| 视频热度趋势       |                                          | 未完成      |
-| 热词/梗 发现       | 网站/梗排行榜/popup梗排行榜              | 未完成      |
-| 自动发评论         | 抢一楼 / 自动发送视频鉴黄结果 + 插件宣传 | 未完成      |
+| 功能                     | 效果                                     | 进展        |
+| ------------------------ | ---------------------------------------- | ----------- |
+| 鉴黄（软色情鉴别）       | 脚本自动化举报 / 前端警报                | 未完成 next |
+| 高能定位                 |                                          | 完成        |
+| 弹幕热度趋势             |                                          | 完成        |
+| 视频热度趋势             |                                          | 未完成      |
+| 热词/梗 发现             | 网站/梗排行榜/popup梗排行榜              | 未完成      |
+| 自动发评论               | 抢一楼 / 自动发送视频鉴黄结果 + 插件宣传 | 未完成      |
+| B站学习打卡/学习时长统计 | 网站排名                                 | 未完成      |
+| B站各区的看视频时长统计  | 个人分析                                 |             |
 
 ## 框架
 
@@ -79,7 +81,7 @@ Host: api.bilibili.com
 Cookie: DedeUserID__ckMd5=ce6e1cb27593719c; _dfcaptcha=762f830805b438db0407f69a0431dbaf; sid=j900c54q; buvid3=85148A53-4C8D-48FD-AA7C-573E4A20171447157infoc; DedeUserID=72195837; stardustvideo=1; rpdid=qqoxxslowdossksxomxw; CURRENT_FNVAL=16; bili_jct=f8f349f6002e11b10116c636673997b1; SESSDATA=be37ed85%2C1556153240%2Cfc017e31; LIVE_BUVID=AUTO7915535612221477
 Origin: https://www.bilibili.com
 Connection: Keep-Alive
-Referer: https://www.bilibili.com/video/av47483830?from=search&seid=8100762963916782638
+Referer: https://www.bilibili.com/video/av49724499
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 Content-Length: 95
@@ -87,8 +89,7 @@ Accept-Encoding: gzip, deflate, br
 Accept: application/json, text/javascript, */*; q=0.01
 Accept-Language: zh-Hans-CN, zh-Hans; q=0.5
 
-oid=47483830&type=1&message=woshirobot&plat=1&jsonp=jsonp&csrf=f8f349f6002e11b10116c636673997b1
-
+oid=49724499&type=1&message=woshirobot&plat=1&jsonp=jsonp&csrf=f8f349f6002e11b10116c636673997b1
 ```
 
 以上的命令已经测试通过，比较重要的几个属性：csrf, cookie
