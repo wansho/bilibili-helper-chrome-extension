@@ -30,7 +30,7 @@
 	
 	"content_scripts": [
 		{
-		"matches": ["https://www.bilibili.com/video/av*"],
+		"matches": ["https://www.bilibili.com/video/av*", "https://www.bilibili.com/video/BV*"],
 		"js": ["static/js/jquery-2.0.3.min.js", "static/js/echarts.min.js", "contentscript.js"],
 		"run_at": "document_end"
 		}
