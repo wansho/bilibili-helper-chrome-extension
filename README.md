@@ -16,11 +16,8 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 本人喜欢在 B 站上看英雄联盟比赛的录播，苦于录播时间长，往往需要手动拉进度条，找开团的时间点，于是我干脆自己做了一个插件，通过弹幕热度，帮助自己找到视频热点。效果如图：
 
-<p align="center">
-  <a href="https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/%E5%BC%B9%E5%B9%95%E7%83%AD%E5%BA%A6%E5%AE%9A%E4%BD%8D.jpg">
-    <img src="https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/%E5%BC%B9%E5%B9%95%E7%83%AD%E5%BA%A6%E5%AE%9A%E4%BD%8D.jpg">
-  </a>
-</p>
+![image-20201109110356251](assets/image-20201109110356251.png)
+
 
 该插件能够在视频加载完成后，在视频下方生成一个弹幕热度图，通过弹幕热度，我们可以比较准确的定位视频的热点，上图的比赛中，开局后的每一个弹幕峰值，往往都是一次团战或者击杀。
 
@@ -34,11 +31,8 @@ Bilibili-Helper 是一款 致力于为 B 站用户提供人性化逛站工具的
 
 ## Tutorial
 
-<p align="center">
-  <a href="https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/tutorial.jpg">
-    <img src="https://wansho-blog-pic.oss-cn-beijing.aliyuncs.com/bilibili-helper/tutorial.jpg">
-  </a>
-</p>
+<img align="left" src="assets/image-20201109110415727.png" alt="image-20201109110415727" style="zoom: 67%;" />
+
 
 打开 弹幕热度开关 即可放心食用弹幕热度插件。
 
